@@ -20,8 +20,8 @@ if __name__ == '__main__':
     qs_dcit = get_qs_dcit(href)
     nothing = qs_dcit['nothing'][0]
 
-    def find_next(start_nothing: str):
-        nothing = start_nothing
+    def find_next(current_nothing: str):
+        nothing = current_nothing
         for i in range(1, 400):
             url = replace_qs(URL, dict(nothing=nothing))
             nothing = get_page(url).split()[-1]
