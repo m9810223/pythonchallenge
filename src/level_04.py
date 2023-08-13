@@ -1,41 +1,42 @@
+from pathlib import Path
+
+from utils import get_page
+from utils import get_qs_dcit
+from utils import join_url
+from utils import replace_qs
+from utils import select_element
+
+
 URL = '''http://www.pythonchallenge.com/pc/def/linkedlist.php'''
 
 
-from pathlib import Path
-
-from utils import source_page
-
 BASE_DIR = Path(__file__).parent.resolve()
-file = BASE_DIR / f'{Path(__file__).name}.data'
-page = source_page(URL, file)
+if __name__ == '__main__':
+    file = BASE_DIR / f'{Path(__file__).name}.data'
+    href = select_element(URL, 'center a').attrs['href']
+    print(href)
+    'linkedlist.php?nothing=12345'
 
-from pyquery import PyQuery
+    qs_dcit = get_qs_dcit(href)
+    nothing = qs_dcit['nothing'][0]
 
-html = PyQuery(page)
+    def find_next(start_nothing: str):
+        nothing = start_nothing
+        for i in range(1, 400):
+            url = replace_qs(URL, dict(nothing=nothing))
+            nothing = get_page(url).split()[-1]
+            # print(i, nothing)
+            if not nothing.isdigit():
+                break
+        return nothing
 
-from urllib.parse import urlparse, urlunparse, urlencode, parse_qsl
+    result = find_next(nothing)
+    print(result)
+    'going.'
 
-href = html('center a').attr('href')
-print(href)
+    result = find_next(result)
+    print(result)
+    'peak.html'
 
-qsl: list[tuple] = parse_qsl(urlparse(href).query)
-print(qsl)
-val = qsl[0][1]
-print(val)
-
-
-def get_val(start_val: str, index: int):
-    val = start_val
-    result = []
-    for i in range(1, 400):
-        qsl[0] = (qsl[0][0], val)
-        url = urlunparse(urlparse(URL)._replace(query=urlencode(qsl)))
-        val = PyQuery(url=url).text().split()[-1]
-        result.append(val)
-        print(i, val)
-        if not val.isdigit():
-            return
-
-
-# get_val(val, 1)
-get_val('going.', 86)
+    print(join_url(URL, result))
+    'http://www.pythonchallenge.com/pc/def/peak.html'

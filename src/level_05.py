@@ -1,1 +1,1 @@
-URL = '''https://www.pythonchallenge.com/pc/def/peak.html'''
+URL = '''http://www.pythonchallenge.com/pc/def/peak.html'''

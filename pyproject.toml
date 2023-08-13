@@ -1,19 +1,26 @@
-[tool.poetry]
+[project]
 name = "pythonchallenge"
-version = "0.1.0"
-description = ""
-authors = [" "]
+version = "0.0.0"
+requires-python = ">=3.9,<4.0"
+dependencies = [
+    "httpx>=0.24.1",
+    "httpx-cache>=0.12.0",
+    "beautifulsoup4>=4.12.2",
+]
 
-[tool.poetry.dependencies]
-python = ">3.9,<4"
-lxml = "4.7.1"
-pyquery = "^1.4.3"
-requests = "^2.27.1"
-beautifulsoup4 = "^4.11.1"
-progress = "^1.6"
 
-[tool.poetry.dev-dependencies]
+[tool.ruff]
+extend-select = [
+  "I", # isort
+]
+ignore = [
+  "E501",   # line-too-long
+  "S101",   # Use of `assert` detected
+  "TRY003", # raise-vanilla-args
+]
 
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+# upload_to_repository
+[tool.ruff.isort]
+# https://beta.ruff.rs/docs/settings/#isort
+force-single-line = true
+lines-after-imports = 2

@@ -1,7 +1,11 @@
-'http://www.pythonchallenge.com/pc/def/0.html'
+from utils import join_url
 
 
-print(2**38)
+URL = 'http://www.pythonchallenge.com/pc/def/0.html'
 
 
-'274877906944'
+if __name__ == '__main__':
+    result = 2**38
+    url = join_url(URL, f'{result}.html')
+    print(url)
+    'http://www.pythonchallenge.com/pc/def/274877906944.html'

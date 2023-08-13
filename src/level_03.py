@@ -1,24 +1,19 @@
+from utils import get_comments
+from utils import get_page
+from utils import join_url
+
+
 URL = '''http://www.pythonchallenge.com/pc/def/equality.html'''
 
 
 '''One small letter, surrounded by EXACTLY three big bodyguards on each of its sides.'''
 
 
-from pathlib import Path
-
-from utils import source_page
-from utils import get_comments
-
-BASE_DIR = Path(__file__).parent.resolve()
-
-
 if __name__ == '__main__':
-    file = BASE_DIR / f'{Path(__file__).name}.data'
-    page = source_page(URL, file)
-    comments = get_comments(page)
-    print(f'{len(comments) = }')
+    comments = get_comments(URL)
     data: str = comments[0].replace('\n', '')
 
+    result = ''
     for i, c in enumerate(data[4:-4], 4):
         if all(
             [
@@ -30,6 +25,17 @@ if __name__ == '__main__':
             ]
         ):
             # print(data[i - 3 : i + 4])
-            print(c, end='')
-
+            result += c
+    print(result)
     'linkedlist'
+
+    url = join_url(URL, f'{result}.html')
+    print(url)
+    'http://www.pythonchallenge.com/pc/def/linkedlist.html'
+
+    result = get_page(url)
+    print(result)
+    'linkedlist.php'
+
+    print(join_url(URL, result))
+    'http://www.pythonchallenge.com/pc/def/linkedlist.php'
