@@ -14,8 +14,18 @@ from bs4 import Tag
 BeautifulSoup = partial(_BeautifulSoup, features='html.parser')
 
 
+def get_response(url: str, method: str = 'GET'):
+    client = httpx_cache.Client(cache=httpx_cache.FileCache('.cache'))
+    response = client.request(method, url)
+    return response
+
+
 def get_page(url: str):
-    return httpx_cache.Client(cache=httpx_cache.FileCache('.cache')).get(url).text
+    return get_response(url).text
+
+
+def get_content(url: str):
+    return get_response(url).content
 
 
 def get_redirect_url(url: str):
