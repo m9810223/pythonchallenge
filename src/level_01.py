@@ -25,9 +25,6 @@ if __name__ == '__main__':
     print(translate(DATA))
     '''i hope you didnt translate it by hand. thats what computers are for. doing it in by hand is inefficient and that's why this text is so long. using string.maketrans() is recommended. now apply on the url.'''
 
-    print(join_url(URL, 'maketrans.html'))
-    'http://www.pythonchallenge.com/pc/def/maketrans.html'
-
     url = get_redirect_url(URL)
     'http://www.pythonchallenge.com/pc/def/map.html'
 
