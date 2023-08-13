@@ -7,7 +7,7 @@ from utils import join_url
 from utils import select_element
 
 
-URL = '''http://www.pythonchallenge.com/pc/def/peak.html'''
+URL = 'http://www.pythonchallenge.com/pc/def/peak.html'
 
 
 def decode_line(line: list[tuple[str, int]]):

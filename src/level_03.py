@@ -3,10 +3,10 @@ from utils import get_page
 from utils import join_url
 
 
-URL = '''http://www.pythonchallenge.com/pc/def/equality.html'''
+URL = 'http://www.pythonchallenge.com/pc/def/equality.html'
 
 
-'''One small letter, surrounded by EXACTLY three big bodyguards on each of its sides.'''
+'One small letter, surrounded by EXACTLY three big bodyguards on each of its sides.'
 
 
 if __name__ == '__main__':

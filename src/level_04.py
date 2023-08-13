@@ -7,7 +7,7 @@ from utils import replace_qs
 from utils import select_element
 
 
-URL = '''http://www.pythonchallenge.com/pc/def/linkedlist.php'''
+URL = 'http://www.pythonchallenge.com/pc/def/linkedlist.php'
 
 
 BASE_DIR = Path(__file__).parent.resolve()

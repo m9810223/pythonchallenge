@@ -11,7 +11,7 @@ if __name__ == '__main__':
     comments = get_comments(URL)
     comment, raw_data = comments
     print(comment)
-    '''find rare characters in the mess below:'''
+    'find rare characters in the mess below:'
 
     counter = Counter(raw_data)
     # pprint(counter)
