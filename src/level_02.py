@@ -7,6 +7,7 @@ from utils import join_url
 
 URL = 'http://www.pythonchallenge.com/pc/def/ocr.html'
 
+
 if __name__ == '__main__':
     comments = get_comments(URL)
     comment, raw_data = comments

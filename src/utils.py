@@ -1,4 +1,5 @@
 from functools import partial
+from pathlib import Path
 from urllib.parse import parse_qs
 from urllib.parse import urlencode
 from urllib.parse import urljoin as _urljoin
@@ -15,7 +16,9 @@ BeautifulSoup = partial(_BeautifulSoup, features='html.parser')
 
 
 def get_response(url: str, method: str = 'GET'):
-    client = httpx_cache.Client(cache=httpx_cache.FileCache('.cache'))
+    client = httpx_cache.Client(
+        cache=httpx_cache.FileCache(Path(__file__).parent.parent / '.cache')
+    )
     response = client.request(method, url)
     return response
 

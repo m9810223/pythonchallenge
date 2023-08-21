@@ -1,5 +1,3 @@
-from pathlib import Path
-
 from utils import get_page
 from utils import get_qs_dcit
 from utils import join_url
@@ -10,9 +8,7 @@ from utils import select_element
 URL = 'http://www.pythonchallenge.com/pc/def/linkedlist.php'
 
 
-BASE_DIR = Path(__file__).parent.resolve()
 if __name__ == '__main__':
-    file = BASE_DIR / f'{Path(__file__).name}.data'
     href = select_element(URL, 'center a').attrs['href']
     print(href)
     'linkedlist.php?nothing=12345'
